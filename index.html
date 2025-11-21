@@ -5,73 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSV 파일 업로드 및 목록</title>
     <style>
-        /* 2. CSS 스타일링 영역 */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #0056b3;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-
-        /* 파일 입력 필드 숨기기 및 커스텀 버튼 스타일링 */
-        #csvFile {
-            /* 실제 input 요소를 숨김 */
-            display: none; 
-        }
-
-        .custom-file-upload {
-            display: inline-block;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .custom-file-upload:hover {
-            background-color: #0056b3;
-        }
-
-        /* 파일 목록 스타일링 */
-        #fileListContainer {
-            margin-top: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: #f9f9f9;
-        }
-        
-        #uploadedFiles {
-            list-style-type: none; /* 목록 마커 제거 */
-            padding: 0;
-        }
-
-        #uploadedFiles li {
-            padding: 8px 0;
-            border-bottom: 1px dashed #eee;
-        }
-
-        #uploadedFiles li:last-child {
-            border-bottom: none;
-        }
+        /* CSS 스타일 (이전과 동일) */
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        h1 { color: #0056b3; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        #csvFile { display: none; } 
+        .custom-file-upload { display: inline-block; padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border-radius: 5px; transition: background-color 0.3s ease; margin-bottom: 20px; font-weight: bold; }
+        .custom-file-upload:hover { background-color: #0056b3; }
+        #fileListContainer { margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 4px; background-color: #f9f9f9; }
+        #uploadedFiles { list-style-type: none; padding: 0; }
+        #uploadedFiles li { padding: 8px 0; border-bottom: 1px dashed #eee; display: flex; justify-content: space-between; align-items: center; }
+        #uploadedFiles li:last-child { border-bottom: none; }
+        .file-count { font-size: 1.1em; font-weight: bold; color: #28a745; margin-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -81,7 +26,52 @@
         <label for="csvFile" class="custom-file-upload">
             CSV 파일 선택 (다중 선택 가능)
         </label>
-        
         <input type="file" id="csvFile" accept=".csv" multiple>
 
         <hr>
+
+        <h2>📝 업로드된 파일 목록</h2>
+        <div id="fileListContainer">
+            <div id="fileCountDisplay" class="file-count">선택된 파일: 0개</div>
+            <ul id="uploadedFiles">
+                <li>선택된 파일이 없습니다.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // DOM 요소 가져오기
+        const fileInput = document.getElementById('csvFile');
+        const uploadedFilesList = document.getElementById('uploadedFiles');
+        const fileCountDisplay = document.getElementById('fileCountDisplay'); // 새로 추가된 요소
+
+        // 파일 선택이 변경될 때 실행되는 이벤트 리스너
+        fileInput.addEventListener('change', function(event) {
+            const files = event.target.files;
+            
+            // 목록 초기화
+            uploadedFilesList.innerHTML = ''; 
+
+            if (files.length > 0) {
+                // 파일 개수 표시 업데이트
+                fileCountDisplay.textContent = `선택된 파일: ${files.length}개`;
+                
+                // 파일 이름 목록 생성 및 추가
+                for (let i = 0; i < files.length; i++) {
+                    const fileName = files[i].name; 
+                    
+                    const listItem = document.createElement('li');
+                    // 파일 이름과 파일 타입을 함께 보여줍니다.
+                    listItem.textContent = fileName;
+                    
+                    uploadedFilesList.appendChild(listItem);
+                }
+            } else {
+                // 파일 선택이 취소되었거나 파일이 없을 경우
+                fileCountDisplay.textContent = '선택된 파일: 0개';
+                uploadedFilesList.innerHTML = '<li>선택된 파일이 없습니다.</li>';
+            }
+        });
+    </script>
+</body>
+</html>
