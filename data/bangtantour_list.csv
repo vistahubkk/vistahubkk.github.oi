@@ -1,0 +1,7 @@
+Date,Region,Product,SalesAmount
+2024-01-01,East,Laptop,1200
+2024-01-01,West,Phone,600
+2024-01-02,East,Phone,550
+2024-01-02,West,Laptop,1300
+2024-01-03,East,Laptop,1150
+2024-01-03,West,Phone,650
