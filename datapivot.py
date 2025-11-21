@@ -5,7 +5,7 @@ import numpy as np
 import pandas as pd
 
 
-file_path = 'bangtantour_list.csv'
+file_path = './data/bangtantour_list.csv'
 
 try:
     df = pd.read_csv(file_path)
