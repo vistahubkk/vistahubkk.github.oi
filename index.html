@@ -1,15 +1,161 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Welcome to bongkoo github pages </title>
+    <title>RRAM 분석</title>
+    <style>
+        /* CSS 스타일링 시작 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+        }
+        nav {
+            background-color: #34495e;
+            padding: 0.7rem 0;
+            text-align: center;
+        }
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 0.7rem 1.2rem;
+            margin: 0 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #2c3e50;
+        }
+        .container {
+            width: 80%;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+            margin-top: 2.5rem;
+        }
+        p {
+            margin-bottom: 1rem;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 1rem;
+        }
+        li {
+            margin-bottom: 0.5rem;
+        }
+        .image-section {
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .image-section img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+        /* CSS 스타일링 끝 */
+    </style>
 </head>
 <body>
-    <h1> Welcome to my git hub pages </h1>
-    <p> git pages, practice </p>
-   
+    <header>
+        <h1>RRAM 분석</h1>
+        <p>Resistive Random-Access Memory 기술 심층 분석</p>
+    </header>
+
+    <nav>
+        <a href="#introduction">소개</a>
+        <a href="#principles">작동 원리</a>
+        <a href="#advantages">장점</a>
+        <a href="#applications">응용 분야</a>
+        <a href="#conclusion">결론</a>
+    </nav>
+
+    <div class="container">
+        <section id="introduction">
+            <h2>RRAM이란?</h2>
+            <p>RRAM(Resistive Random-Access Memory)은 차세대 비휘발성 메모리 기술 중 하나로, 전압 인가에 따른 재료의 저항 변화를 이용하여 데이터를 저장하는 방식입니다. 기존 플래시 메모리의 한계를 극복하고 더 높은 속도, 낮은 전력 소비, 그리고 뛰어난 내구성을 제공할 수 있는 잠재력을 가지고 있습니다.</p>
+            <p>본 페이지에서는 RRAM의 기본 개념부터 작동 원리, 장점, 그리고 다양한 응용 분야에 이르기까지 심층적인 분석을 제공합니다.</p>
+        </section>
+        
+        <div class="image-section">
+            <img src="https://via.placeholder.com/600x300?text=RRAM+Structure+Example" alt="RRAM 구조 예시">
+            <p><small>RRAM 소자의 기본 구조 개념도 (이미지는 예시입니다)</small></p>
+        </div>
+
+        <section id="principles">
+            <h2>RRAM의 작동 원리</h2>
+            <p>RRAM은 유전체 또는 산화물 박막 내에서 발생하는 저항 변화 현상(Resistive Switching)을 기반으로 합니다. 일반적으로 두 개의 전극 사이에 저항 변화 물질이 삽입된 MIM(Metal-Insulator-Metal) 구조를 가집니다.</p>
+            <ul>
+                <li>**SET (저저항 상태):** 일정 전압을 가하면 물질 내에 전도성 필라멘트(Conduction Filament)가 형성되어 저항이 낮아지는 현상입니다. 이 상태를 '1' 또는 'ON' 상태로 간주할 수 있습니다.</li>
+                <li>**RESET (고저항 상태):** 반대 극성의 전압을 가하거나 다른 조건에서 전도성 필라멘트가 끊어져 저항이 높아지는 현상입니다. 이 상태를 '0' 또는 'OFF' 상태로 간주할 수 있습니다.</li>
+            </ul>
+            <p>이러한 저항 변화는 주로 산소 공공(Oxygen Vacancy)의 이동, 금속 이온의 이동 등 다양한 메커니즘에 의해 발생합니다.</p>
+        </section>
+
+        <section id="advantages">
+            <h2>RRAM의 주요 장점</h2>
+            <p>RRAM은 기존 메모리 기술 대비 여러 가지 뛰어난 장점을 가집니다.</p>
+            <ul>
+                <li>**고속 동작:** 나노초 단위의 빠른 읽기/쓰기 속도를 제공합니다.</li>
+                <li>**낮은 전력 소비:** 데이터 저장 및 변경에 필요한 전력이 적어 모바일 기기 및 IoT 장치에 적합합니다.</li>
+                <li>**뛰어난 확장성:** 소자 크기를 쉽게 줄일 수 있어 고밀도 집적화에 유리합니다.</li>
+                <li>**긴 내구성:** 높은 쓰기/지우기 주기(Endurance)를 가지며, 비휘발성 특성으로 전원 공급 없이도 데이터를 유지합니다.</li>
+                <li>**3D 적층 가능성:** 셀 구조가 간단하여 3차원 적층이 용이하며, 이는 메모리 용량 증대에 큰 기여를 할 수 있습니다.</li>
+            </ul>
+        </section>
+
+        <section id="applications">
+            <h2>다양한 응용 분야</h2>
+            <p>RRAM의 독특한 특성들은 다양한 분야에서의 활용 가능성을 열어줍니다.</p>
+            <ul>
+                <li>**차세대 스토리지:** SSD(Solid State Drive)를 대체하거나 보완하는 고성능 비휘발성 메모리.</li>
+                <li>**인-메모리 컴퓨팅 (In-Memory Computing):** 데이터 처리와 저장을 동일한 소자에서 수행하여 데이터 이동으로 인한 병목 현상을 줄임. 인공지능 및 뉴로모픽 컴퓨팅에 특히 유망합니다.</li>
+                <li>**IoT 및 엣지 디바이스:** 저전력, 비휘발성 특성으로 배터리 구동 장치에 이상적입니다.</li>
+                <li>**고성능 컴퓨팅:** 서버, 데이터 센터 등에서 대용량 데이터의 고속 처리를 지원합니다.</li>
+            </ul>
+        </section>
+
+        <section id="conclusion">
+            <h2>결론</h2>
+            <p>RRAM은 뛰어난 성능과 잠재력을 가진 차세대 비휘발성 메모리 기술입니다. 아직 상용화에 앞서 해결해야 할 과제들도 존재하지만, 활발한 연구 개발을 통해 미래 컴퓨팅 및 스토리지 분야의 핵심 기술로 자리매김할 것으로 기대됩니다. 지속적인 기술 발전과 함께 RRAM이 가져올 혁신을 주목해야 할 것입니다.</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 RRAM 분석 페이지. 모든 권리 보유.</p>
+    </footer>
 </body>
 </html>
